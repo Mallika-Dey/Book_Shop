@@ -1,0 +1,52 @@
+.field{
+	background-color: black;
+	text-align: center;
+	color: white;
+	height: 450px;
+	width: 400px;
+	opacity: 0.9;
+	margin: 50px auto auto 30em;
+	padding: 10px;
+	animation-name: design_login_zoom;
+	animation-duration: 0.6s;
+}
+#boxname{
+	text-align: start;
+	font-size: 120%;
+	margin-top: 3px;
+	padding-left: 4px;
+}
+.txtbox{
+	font-family: sans-serif;
+	font-size: 15px;
+	height: 20px;
+	width: 300px;
+	padding: 6px;
+	border: 1px solid black;
+}
+.submit,.back{
+	border-radius: 10px;
+	width: 250px;
+	height: 30px;
+	border: none;
+	color: white;
+	font-size: 15px;
+}
+.submit{
+	background-color: green;
+}
+.back{
+	background-color: orange;
+}
+.submit:hover,.back:hover{
+	background-color: blue;
+	box-shadow: 1px 1px 2px blue;
+}
+@-webkit-keyframes design_login_zoom{
+	from{-webkit-transform: scale(0);}
+	to{-webkit-transform: scale(1);}
+}
+@keyframes design_login_zoom{
+	from{transform: scale(0);}
+	to{transform: scale(1);}
+}

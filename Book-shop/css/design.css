@@ -1,0 +1,80 @@
+body{
+	overflow: scroll;
+}
+h1{
+	font-family: Comic Sans Ms;
+}
+.First_part{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.grid_1{
+	display: grid;
+	grid-template-columns: auto auto;
+}
+/*.search{
+	float: center;
+}*/
+.Second_part{
+	background-image: url(../image/book-2.jpg);
+	height: 30em;
+	/*margin between nav and first_part*/
+	margin-top: -20.6px;
+	color: white;
+	box-shadow: 0px 2px 3px #666;
+}
+.Second_part p{
+	padding: 9em;
+	font-size: 130%;
+	font-family: Comic Sans Ms;
+}
+.title{
+	font-family: arial,Verdana;
+}
+.nav{
+	background-color: black;
+}
+ul{
+	list-style-type: none;
+	box-shadow: 0px 2px 3px #666;
+}
+li{
+	display: inline-block;
+}
+li a{
+	display: block;
+	text-decoration: none;
+	color: white;
+	padding: 0.8em;
+	margin: 0 1.5em 0 0;
+}
+li a:hover{
+	background-color: silver;
+	box-shadow: 0px 2px 3px #666;
+	margin-left: -0.1px;
+	margin-right: 0.1px;
+	margin-top: 0.1px;
+}
+li a:active{
+	text-decoration: underline;
+}
+.login a,.signup a{
+	display: block;
+	border: 1px blue;
+	background-color: blue;
+	color: white;
+	padding: 9px;
+	width: 50px;
+	text-decoration: none;
+	margin-top: 20px;
+	margin-right: 3px;
+	box-shadow: 0.3px 1px 1.5px blue;
+	font-family: sans-serif,arial;
+	font-size: 80%;
+	font-weight: bold;
+	text-align: center;
+}
+.login a:hover, .signup a:hover{
+	border: 2px solid blue;
+}
