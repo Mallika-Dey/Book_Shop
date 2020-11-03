@@ -10,6 +10,7 @@
 	padding: 10px;
 	animation-name: design_signup_zoom;
 	animation-duration: 0.6s;
+	box-shadow: 0.3px 1px 3px #666;
 }
 #boxname2{
 	text-align: start;

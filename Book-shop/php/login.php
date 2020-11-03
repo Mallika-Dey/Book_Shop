@@ -20,15 +20,24 @@
 	</form>
 	</div>
 	<?php  
+		error_reporting(0);
 		include 'connect.php';
 		if($_POST["login"]){
 			$mail=$_POST["mail"];
 			$pass=$_POST["pass"];
 			$remember=$_POST["remember"];
-			$query="select * from signup where Email='$mail' and Password='$pass'";
-			$data=mysqli_query($connect,$query);
-			if($data){
-				echo "<script>alert('logged in successfully');</script>";
+			if($mail!='' && $pass!=''){
+				$query="select * from signup where Email='$mail' and Password='$pass'";
+				$data=mysqli_query($connect,$query);
+				if(mysqli_fetch_array($data) > 0){
+					echo "<script>alert('logged in successfully');</script>";
+					echo "<script type='text/javascript'
+					 src='../javascript/gotonext.js'>
+					</script>";
+				}
+				else{
+				
+				}
 			}
 		}
 	?>

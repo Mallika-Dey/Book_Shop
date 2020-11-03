@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>SignUp</title>
 	<link rel="stylesheet" type="text/css" href="../css/signup.css" />
 </head>
 <body>
@@ -22,6 +23,7 @@
 	</form>
 	</div>
 	<?php 
+		error_reporting(0);
 		include 'connect.php';
 		if($_POST["submit2"]){
 			$nam=$_POST["name"];
@@ -31,6 +33,7 @@
 			if($pass==$con_pass){
 				$query="insert into signup values('$nam','$mail','$pass')";
 				$data=mysqli_query($connect,$query);
+				echo "<script type='text/javascript' src='../javascript/gotonext.js'></script>";
 			}
 			else{
 				// echo "<script>alert('password don\'t match');</script>";
