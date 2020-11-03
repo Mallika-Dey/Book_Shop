@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Online Book Shop</title>
 </head>
 <body>
   <?php
