@@ -11,7 +11,8 @@
 				<h1>BookShop</h1>
 			</div>
 			<div class="account_part">
-				<!-- Add account logo -->
+				<!-- <a href="../html/myaccount.html"><img src="../image/icon.png" id="icon" /></a> -->
+				
 			</div>
 		</div>
 		<div class="nav">

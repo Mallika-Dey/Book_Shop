@@ -4,4 +4,7 @@
 		$password="";
 		$database_name="book-shop";
 		$connect=mysqli_connect($server,$username,$password,$database_name);
+		if($connect->connect_error){
+			die("failed".mysqli_connect_error());
+		}
  ?>

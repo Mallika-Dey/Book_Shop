@@ -1,1 +1,0 @@
-window.location='../html/home.html';

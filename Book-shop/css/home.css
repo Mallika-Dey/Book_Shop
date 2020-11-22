@@ -1,6 +1,8 @@
 body{
 	overflow: scroll;
-	background-color: lightgreen;
+	background-color: rgb(237, 236, 178);
+	animation-name: home_animation;
+	animation-duration: 0.6s;
 }
 h1{
 	font-family: Comic Sans Ms;
@@ -18,7 +20,7 @@ h1{
 	height: 30em;
 	/*margin between nav and first_part*/
 	margin-top: -20.6px;
-	color: white;
+	color: rgb(240, 232, 216);
 	box-shadow: 0px 2px 3px #666;
 }
 .Second_part p{
@@ -30,7 +32,7 @@ h1{
 	font-family: arial,Verdana;
 }
 .nav{
-	background-color: black;
+	background-color: rgb(30, 32, 41);
 }
 ul{
 	list-style-type: none;
@@ -42,12 +44,12 @@ li{
 li a{
 	display: block;
 	text-decoration: none;
-	color: white;
+	color: rgb(240, 232, 216);
 	padding: 0.8em;
 	margin: 0 1.5em 0 0;
 }
 li a:hover{
-	background-color: silver;
+	background-color: rgb(163, 160, 155);
 	box-shadow: 0px 2px 3px #666;
 	margin-left: -0.1px;
 	margin-right: 0.1px;
@@ -55,4 +57,18 @@ li a:hover{
 }
 li a:active{
 	text-decoration: underline;
+}
+#icon{
+	height: 50px;
+	width: 50px;
+	border-radius: 32px; 
+	margin-top: 12px;
+	margin-right: 12px;
+}
+#myaccount{
+	display: none;
+}
+@keyframes home_animation{
+	from{opacity: 0};
+	to{opacity: 1};
 }

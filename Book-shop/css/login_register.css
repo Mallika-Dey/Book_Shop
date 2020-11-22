@@ -1,0 +1,77 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.field,.field2{
+	background-color: rgb(30, 32, 41);
+	text-align: center;
+	color: rgb(240, 232, 216);
+	width: 35%;
+	margin: auto;
+	margin: 2em auto;
+	padding: 10px;
+	animation-name: design_signup_zoom;
+	animation-duration: 0.6s;
+	box-shadow: 0.3px 1px 3px #666;
+}
+h1{
+	margin-top: 3px;
+	margin-bottom: 1em;
+}
+#boxname,#boxname2{
+	text-align: start;
+	font-size: 120%;
+	margin-top: 2px;
+	padding-left: 5px;
+}
+.txtbox,.txtbox2{
+	/*margin-top: 10px;*/
+	font-family: sans-serif;
+	font-size: 15px;
+	height: 20px;
+	width: 300px;
+	padding: 6px;
+	/*border-radius: 15px;*/
+	/*border: none;*/
+	border: 1px solid rgb(30, 32, 41);
+}
+.submit,.back,.submit2,.back2{
+	border-radius: 10px;
+	width: 250px;
+	height: 30px;
+	border: none;
+	color: rgb(240, 232, 216);
+	font-size: 15px;
+}
+.submit,.submit2{
+	background-color: rgb(7, 135, 28);
+}
+.back,.back2{
+	background-color: rgb(201, 136, 6);
+	margin-bottom: 1em;
+}
+.submit:hover,.back:hover,.submit2:hover,.back2:hover{
+	background-color: rgb(9, 36, 156);
+	box-shadow: 1px 1px 2px rgb(9, 36, 156);
+}
+.show_error{
+	/*margin-top: 10px;*/
+	font-family: sans-serif;
+	font-size: 15px;
+	height: 21px;
+	width: 301px;
+	padding: 6px;
+	border: 1.2px solid red;
+	box-shadow: 0px 1px 2px red;
+}
+.empty{
+	font-style: italic;
+}
+@-webkit-keyframes design_signup_zoom{
+	from{-webkit-transform: scale(0);}
+	to{-webkit-transform: scale(1);}
+}
+@keyframes design_signup_zoom{
+	from{transform: scale(0);}
+	to{transform: scale(1);}
+}
