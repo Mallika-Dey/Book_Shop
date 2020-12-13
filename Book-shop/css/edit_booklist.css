@@ -1,0 +1,61 @@
+body{
+	background-color: #fce7fd;
+}
+#right-side	{
+	margin-left: 60em; 
+	margin-top: 20px;
+}
+.logout	{
+	padding: 8px;
+	border-radius: 2px;
+	border: 0.5px solid #6da8e4;
+	background-color: #6da8e4;
+	height: 3em;
+	width: 4.4em;
+	font-weight: bold;
+}
+.logout:hover{
+	background-color: #49abd4;
+	border: 2px solid #49abd4;
+}
+
+table{
+	border: 2px solid #28a5de;
+	padding: 2px;
+	margin-bottom: 1em;
+}
+
+.header{
+		color: blue;
+}
+
+th,td{
+	border: 1px solid #72bad8;
+	height: 30px;
+}
+
+input{
+	border-color: #dccece;
+	height: 20px;
+}
+
+.submit{
+	background-color: #13abea;
+	height: 2em;
+	width: 4em;
+	padding: 2px;
+}
+.submit:hover{
+	border: 2px solid #13abea;
+}
+
+.booklist{
+	margin: 0px auto auto 17em;
+}
+.booklist table{
+	width: 50em;
+}
+.booklist td{
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+}

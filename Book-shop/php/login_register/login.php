@@ -1,17 +1,21 @@
 <?php 
-	include('functions.php');
+	error_reporting(0);
+	include('../functions.php');
  ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Login Page</title>
 	<link rel="stylesheet" type="text/css" href="../../css/login_register.css" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
 	<form action="login.php" method="POST">
 		<div class="field" id="field">
 
-			<h1>LogIn</h1>
+			<h1>SignIn</h1>
 			<?php 
 			echo '
 			<p id="boxname">UserName:</p>
@@ -22,8 +26,8 @@
 
 		<p id="boxname"><input type="checkbox" name="remember"> Remember me</p>
 
-		<input type="submit" name="login" value="Login" class="submit"><br><br>
-		<input type="submit" name="back" value="Back" class="back">
+		<input type="submit" name="login" value="Login" class="btn btn-primary">
+		<input type="submit" name="back" value="Back" class="btn btn-danger">
 		<br>';
 		echo show_error(); 
 			?>

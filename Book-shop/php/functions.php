@@ -2,10 +2,12 @@
 
 	session_start();
 
-	include('../connect.php');
+	include('connect.php');
 	$name='';
 	$username='';
 	$mail='';
+	$book_name='';
+	$author='';
 	$error=array();
 
 	function escape($value){
@@ -42,79 +44,72 @@
 		else if($password!=$con_pass){
 			array_push($error, 4);
 		}
+		else if(strlen($password)<7){
+			array_push($error, 5);
+		}
 		else{
 			$query="select Id from user where Username='$username' Limit 1";
 			$data=mysqli_query($connect,$query);
 
 			if(mysqli_num_rows($data)==1){
-				array_push($error, 5);
+				array_push($error, 6);
 			}
 		}
-		if(empty($error)){
+		if(empty($error))	{
 
-			if(isset($_POST['user_type'])){
+			if(isset($_POST['user_type']))	{
 				
 				$user_type=escape($_POST['user_type']);
 				$query="insert into user (Name,Username,Mail,User_type,Password) values('$name','$username','$mail','$user_type','$password')";
 				$data=mysqli_query($connect,$query);
 				$getid=mysqli_insert_id($connect);
 				$_SESSION['user']=getuserid($getid);
-				if($_SESSION['user']['user_type']=='Admin'){
-					header('location: admin_home.php');
+				if($_SESSION['user']['User_type']=='admin')	{
+					header('location: ../admin_home.php');
 				}
-				else{
-					header('location: ../home.php');
+				else  {
+					header('location: ../index.php');
 				}
 			}
-			else{
+			else  {
+				$password=md5($password);
 				$query="INSERT INTO user (Name,Username,Mail,User_type,Password) VALUES('$name','$username','$mail','user','$password')";
 				$data=mysqli_query($connect,$query);
 				$getid=mysqli_insert_id($connect);
 				$_SESSION['user']=getuserid($getid);
-				header('location: ../home.php');
+				header('location: ../index.php');
 			}
 		}
 	}
 
-	function login(){
+	function login()	{
 
 		global $connect,$username,$error;
 
 		$username=escape($_POST['username']);
 		$password=escape($_POST['pass']);
-
-		if(empty($username)){
-			array_push($error, "Username is required");
-		}
-
-		else if(empty($password)){
-			array_push($error,"Password is required");
-		}
-
-		else{
-
+		$password=md5($password);
 			$query="select * from user where Username='$username' and Password='$password'";
 			$data=mysqli_query($connect,$query);
 
-			if(mysqli_num_rows($data)==1){
+			if(mysqli_num_rows($data)==1) {
 				$log_in=mysqli_fetch_assoc($data);
 				$_SESSION['user']=$log_in;
-				if($_SESSION['user']['user_type']=='Admin'){
-					header('location: admin_home.php');
+				if($_SESSION['user']['User_type']=='admin')	{
+					header('location: ../admin_home.php');
 				}
-				else{
-					header('location: ../home.php');
+				else  {
+					header('location: ../index.php');
 				}
 			}
-			else{
+			else {
 				array_push($error, "Wrong Username/Password");
 			}
-		}
 	}
 
-	function show_error(){
+	function show_error()	{
 		global $error;
-		if(!empty($error)){
+		if(!empty($error))	{
 			foreach ($error as $val) {
 				if($val==1){
 					echo "<script type='text/javascript' src='../../javascript/name.js'></script>";
@@ -125,8 +120,8 @@
 				else if ($val==3) {
 					echo "<script type='text/javascript' src='../../javascript/mail.js'></script>";
 				}
-				else if($val==4){
-					echo "<script type='text/javascript' src='../../javascript/password.js'></script>";
+				else if($val==4 || $val==5)	{
+					// echo "<script type='text/javascript' src='../../javascript/password.js'></script>";
 				}
 				else {
 					echo "<script type='text/javascript' src='../../javascript/username_exist.js'></script>";
@@ -135,8 +130,37 @@
 		}
 	}
 
-	function isloggedin(){
-		if(isset($_SESSION['user'])){
+	function addbook()	{
+
+		global $connect,$book_name,$author;
+		$book_name=escape($_POST['book_name']);
+		$author=escape($_POST['author']);
+		$price=escape($_POST['price']);
+
+		$target="../image/";
+		$filename=$_FILES['pic']['name'];
+		$targetfile=$target.basename($_FILES['pic']['name']);
+		$extension=strtolower(pathinfo($targetfile,PATHINTO_EXTENSION));
+		$check=getimagesize($_FILES['pic']['tmp_name']);
+
+		if($check!=false)	{
+
+			if(!file_exists($targetfile))  {
+				$var=move_uploaded_file($_FILES['pic']['tmp_name'], $targetfile);
+			}
+
+			$query="INSERT INTO book_list(Book_name,Author,Price,Cover) VALUES('$book_name','$author','$price','$filename')";
+			$data=mysqli_query($connect,$query);
+		}
+
+	}
+
+	if($_POST['+add'])	{
+		addbook();
+	}
+
+	function isloggedin()	{
+		if(isset($_SESSION['user']))	{
 			return true;
 		}
 		else {
@@ -145,26 +169,25 @@
 	}
 
 	function isAdmin(){
-		if(isset($_SESSION['user']) && $_SESSION['user']['user_type']=='Admin'){
+		if(isset($_SESSION['user']) && $_SESSION['user']['User_type']=='admin')	{
 			return true;
 		}
-		else{
+		else  {
 			return false;
 		}
 	}
 
-	if(isset($_POST['register'])){
+	if(isset($_POST['register']))	{
 			register();
 	}
 
-	if(isset($_POST['login'])){
+	if(isset($_POST['login']))	{
 			login();
 	}
 
-	if(isset($_POST['logout'])){
+	if(isset($_POST['logout']))	{
 		session_destroy();
 		unset($_SESSION['user']);
-		header('location: login.php');
 	}
 
 ?>
