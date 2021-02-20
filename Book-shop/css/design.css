@@ -1,6 +1,6 @@
 body{
 	overflow: scroll;
-	background-color: rgb(237, 236, 178);
+	background: linear-gradient(to right top,#65dfc9,#6cdbeb);
 	animation-name: home_animation;
 	animation-duration: 0.6s;
 }
@@ -20,7 +20,7 @@ h1{
 	float: center;
 }*/
 .Second_part{
-	background-image: url(../image/book-2.jpg);
+	/*background-image: url(../image/book-2.jpg);*/
 	height: 30em;
 	/*margin between nav and first_part*/
 	margin-top: -20.6px;
@@ -64,7 +64,7 @@ li a:active{
 }
 .login a,.signup a{
 	display: block;
-	border: 1px rgb(9, 36, 156);
+	border: 1px rgb(10 36 152);
 	background-color: #2b4ad2;
 	color: rgb(240, 232, 216);
 	padding: 9px;
@@ -92,13 +92,14 @@ li a:active{
 	text-decoration: none;
 }
 .logout{
-	border: 1px solid #6da8e4;
-	background-color: #6da8e4;
-	height: 3em;
-	width: 4.4em;
+	border: 1px solid #c1cad2;
+	background-color: #5c98d4;
+	height: 2.7em;
+	width: 4.5em;
 }
 .logout:hover{
 	background-color: #5f9ad8;
+	cursor: pointer;
 }
 @keyframes home_animation{
 	from{opacity: 0};

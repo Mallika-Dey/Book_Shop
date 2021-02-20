@@ -4,6 +4,10 @@ function checkpassword() {
 	if(this.value.length<7){
 		msg.textContent='Password length must be at least 7';
 	}
+	else if(this.value.match(/[&]/g) || this.value.match(/[<]/g)
+		|| this.value.match(/[>]/g)) {
+       msg.textContent="Password shouldn't contain &,<,>";
+	}
 	else{
 		msg.textContent='';
 	}

@@ -8,6 +8,7 @@
 	$mail='';
 	$book_name='';
 	$author='';
+	$category='';
 	$error=array();
 
 	function escape($value){
@@ -46,6 +47,9 @@
 		}
 		else if(strlen($password)<7){
 			array_push($error, 5);
+		}
+		elseif (preg_match("/&/", $password) || preg_match("/</",$password) || preg_match("/>/", $password)) {
+			array_push($error, 7);
 		}
 		else{
 			$query="select Id from user where Username='$username' Limit 1";
@@ -120,8 +124,8 @@
 				else if ($val==3) {
 					echo "<script type='text/javascript' src='../../javascript/mail.js'></script>";
 				}
-				else if($val==4 || $val==5)	{
-					// echo "<script type='text/javascript' src='../../javascript/password.js'></script>";
+				else if($val==4 || $val==5 || $val==7)	{
+					
 				}
 				else {
 					echo "<script type='text/javascript' src='../../javascript/username_exist.js'></script>";
@@ -132,9 +136,10 @@
 
 	function addbook()	{
 
-		global $connect,$book_name,$author;
+		global $connect,$book_name,$author,$category;
 		$book_name=escape($_POST['book_name']);
 		$author=escape($_POST['author']);
+		$category=escape($_POST['category']);
 		$price=escape($_POST['price']);
 
 		$target="../image/";
@@ -149,9 +154,22 @@
 				$var=move_uploaded_file($_FILES['pic']['tmp_name'], $targetfile);
 			}
 
-			$query="INSERT INTO book_list(Book_name,Author,Price,Cover) VALUES('$book_name','$author','$price','$filename')";
+			$query="INSERT INTO $category(Book_name,Author,Price,Cover) VALUES('$book_name','$author','$price','$filename')";
 			$data=mysqli_query($connect,$query);
 		}
+
+	}
+
+	function display($category)
+	{
+		global $connect;
+		$pic = array();
+		$query="SELECT Cover, Author from $category";
+		$data=mysqli_query($connect,$query);
+		while ($val=mysqli_fetch_assoc($data)) {
+			array_push($pic,array("../image/".$val['Cover'],$val['Author']));
+		}
+		return $pic;
 
 	}
 

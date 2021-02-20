@@ -1,23 +1,23 @@
-body{
-	background-color: #fce7fd;
+body {
+	background: -webkit-linear-gradient(left,#25c481,#25b7c4);
+	background: linear-gradient(to right,#25c481,#25b7c4);
+	font-family: sans-serif;
 }
 #right-side	{
-	margin-left: 60em; 
-	margin-top: 20px;
+	margin-left: 81em; 
+	margin-top: 3.7em;
 }
-.logout	{
-	padding: 8px;
-	border-radius: 2px;
-	border: 0.5px solid #6da8e4;
-	background-color: #6da8e4;
-	height: 3em;
-	width: 4.4em;
+#logout	{
+	border-radius: 10px;
+	width: 4.2em;
+	height: 2.4em;	
+	padding: 7px;
 	font-weight: bold;
 }
 .logout:hover{
-	background-color: #49abd4;
-	border: 2px solid #49abd4;
+	border: 2px solid #25b7c4;
 }
+
 
 table{
 	border: 2px solid #28a5de;
@@ -30,8 +30,10 @@ table{
 }
 
 th,td{
-	border: 1px solid #72bad8;
+	border: 2px solid white;
 	height: 30px;
+	padding: 10px 14px 10px 14px;
+	text-align: center;
 }
 
 input{
@@ -50,12 +52,8 @@ input{
 }
 
 .booklist{
-	margin: 0px auto auto 17em;
+	margin-left: 10em;
 }
 .booklist table{
 	width: 50em;
-}
-.booklist td{
-	padding: 10px 20px 10px 20px;
-	text-align: center;
 }
