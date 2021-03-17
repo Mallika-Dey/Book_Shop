@@ -1,150 +1,274 @@
-body{
-	font-family: sans-serif,arial;
-	height: 100vh;
-	background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-	overflow: auto;
+body {
+    font-family: sans-serif, arial;
+    /*height: 100vh;*/
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    overflow: auto;
 }
 
-.hamburger{
-	position: absolute;
-	cursor: pointer;
-	top: 50%;
-	left: 2%;
-	transform: translate(-5%,-50%);
-	z-index: 2;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-.line{
-	width: 30px;
-	height: 3px;
-	background: white;
-	margin: 5px;
+/*FOR NAV PART----->start*/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8.6vh;
+    font-family: 'Poppins', sans-serif;
+    background: #233463;
 }
 
-nav{
-	height: 12vh;
-	background: #233463;
-	position: relative;
+.logo {
+    margin-top: 4px;
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 18px;
+    text-shadow: -2px 2px 3px #ffffff;
 }
 
-.search{
-	position: absolute;
-	margin-left: 10%;
-	top: 38%;
-	height: 4px;
+.nav-links {
+     margin-top: 12px;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
 }
 
-form input,button{
-	border: 1px solid black;
-	border-radius: 20px;
+.nav-links li {
+    list-style: none;
 }
 
-form input{
-	height: 1.8em;
-	background: #d0ced6;
+.nav-links a, .dropdown-toggle{
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-form button{
-	cursor: pointer;
+.dif-color, .dropdown-toggle, .dif-color:hover {
+    color: rgb(226, 226, 226);
 }
 
-.enter-shop{
-	position: absolute;
-	margin-left: 87%;
-	top: 40%;
-	display: flex;
-	flex-wrap: wrap;
+.dropdown-menu button {
+    font-weight: bold;
 }
 
-.enter-shop a{
-	margin-right: 4px;
-	text-decoration: none;
-	background: #d5c9ec;
-    border: 1px solid black;
-    padding: 4px;
+.dropdown-item:hover {
+    outline: none;
 }
 
-.nav-links{
-    margin-top: 4.95em;
-    position: absolute;
-	/*position: fixed;*/
-	display: none;
-	list-style: none;
-	background: #888388;
-	opacity: .9;
-	height: 87%;
-	width: 100%;
-	justify-content: space-around;
-	align-items: center;
+.burger {
+    display: none;
+    cursor: pointer;
 }
 
-.nav-links.open{
-	display: flex;
-	flex-direction: /*column;*/row;
-	animation-name: nav-animation;
-	animation-duration: 1.2s;
-	animation-direction: alternate;
-	animation-timing-function: ease-in;
-	box-shadow: 0px 1px 2px #888389;
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
 }
 
-li a:hover	{
-	color: blue;
-	font-weight: bold;
-	margin-left: -20px;
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 50%;
+    }
 }
 
-.nav-content	{
-	color: black;
-	text-decoration: none;
-	font-size: 18px;
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        margin-top: 0px;
+        position: absolute;
+        /*relative to it's parent nav*/
+        height: 102vh;
+        right: 0px;
+        top: 8vh;
+        background: #233463;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
 }
 
-@keyframes nav-animation	{
-	from{opacity: 0};
-	to{opacity: 1};
+.nav-active {
+    transform: translateX(0%);
 }
 
-.book{
-      margin-top: 7em;
+@keyframes navLinkFade {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
-.set-background{
-    background: white;
-    border: 1px solid white;
-    border-radius: 10px;
+.toggle .line1 {
+    transform: rotate(45deg) translate(5px, 6px);
 }
 
-.book-info{
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+@keyframes mainanimate {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hideall {
+    opacity: 0;
+}
+
+form input {
+
+    height: 2.93em;
+    width: 24em;
+}
+
+.search-book {
+    margin-top: 2%;
     text-align: center;
+}
+
+/*form button {
+    border: 1px solid black;
+    cursor: pointer;
+}*/
+
+#search {
+    width: 5%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+    margin-left: -4px;
+}
+
+/*.enter-shop,
+.container_left {
+    position: absolute;
+    top: 40%;
+    margin-left: 86%;
+    display: flex;
+    flex-wrap: wrap;
+}*/
+
+
+
+
+
+/*.nav-content {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}*/
+
+.main {
+    margin-top: 10em;
+}
+
+@keyframes nav-animation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.book {
+    margin-top: 7em;
+}
+
+.set-background {
+    background: white;
+    border: 2px solid white;
+    text-align: center;
+    -webkit-box-shadow: 4px 5px 9px -2px #000000;
+    box-shadow: 4px 5px 9px -2px #000000;
+}
+
+.book-info {
     font-style: italic;
     font-weight: bold;
 }
 
-img{
+img {
     border: 4px solid white;
-   /* border-radius: 2px;*/
+}
+
+input#add_to_cart {
+    text-align: center;
+    margin-top: -19px;
+    margin-bottom: 6px;
+    background-color: purple;
+    background-size: cover;
+    width: 160px;
+    height: 32px;
+}
+
+input#add_to_cart:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 15px 2px #1E4429;
+    -webkit-box-shadow: 2px 2px 15px 2px #1E4429;
 }
 
 /*.display_book {
-	margin: 2px 20px 2px 10em;
-	padding: 10px;
+    margin: 2px 20px 2px 10em;
+    padding: 10px;
 }
 .cover{
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .display_book img{
-	margin-right: 20px;
-	height: 130px;
-	width: 120px;
-	padding: 2px;
+    margin-right: 20px;
+    height: 130px;
+    width: 120px;
+    padding: 2px;
 }
 
 .display_book img:hover{
-	width: 123px;
-	box-shadow: 0px 1px 1.5px black;
+    width: 123px;
+    box-shadow: 0px 1px 1.5px black;
 }*/
 
 /*
@@ -153,14 +277,23 @@ CC 2.0 License Iatek LLC 2018
 Attribution required
 
 */
+/*
+@media only screen and (min-device-width: 481px) and (max-device-width: 900px) {
+    body{
+        background: black; 
+    }
+}*/
 
 
-@media (min-width: 768px) and (max-width: 991px) {
-  /* Show 3rd slide on md  if col-md-4*/
-        .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+/*https://codepen.io/timar/pen/mabyEg*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+    /* Show 3rd slide on md  if col-md-4*/
+    .carousel-inner .active.col-md-4.carousel-item+.carousel-item+.carousel-item+.carousel-item {
         position: absolute;
         top: 0;
-        right: -33.3333%;  /*change this with javascript in the future*/
+        right: -33.3333%;
+        /*change this with javascript in the future*/
         z-index: -1;
         display: block;
         visibility: visible;
@@ -168,47 +301,49 @@ Attribution required
 
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
-  /* Show 2 slide on md  if col-md-4*/
-        .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
+@media only screen and (min-device-width: 576px) and (max-device-width: 768px) {
+
+    /* Show 2 slide on md  if col-md-4*/
+    .carousel-inner .active.col-sm-6.carousel-item+.carousel-item+.carousel-item {
         position: absolute;
         top: 0;
-        right: -50%;  /*change this with javascript in the future*/
+        right: -50%;
         z-index: -1;
         display: block;
         visibility: visible;
     }
 
 }
-@media (min-width: 576px) {
-  .carousel-item {
-  margin-right: 0;
-}
+
+@media only screen and (min-width: 576px) {
+    .carousel-item {
+        margin-right: 0;
+    }
 
     /* show 2 items */
-    .carousel-inner .active + .carousel-item {
+    .carousel-inner .active+.carousel-item {
         display: block;
     }
-    
+
     .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item {
         transition: none;
     }
 
     .carousel-inner .carousel-item-next {
-      position: relative;
-      transform: translate3d(0, 0, 0);
+        position: relative;
+        transform: translate3d(0, 0, 0);
     }
-    
+
     /* left or forward direction */
-    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left + .carousel-item,
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
+    .active.carousel-item-left+.carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left+.carousel-item,
+    .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
-    } 
-    
+    }
+
     /* farthest right hidden item must be abso position for animations */
     .carousel-inner .carousel-item-prev.carousel-item-right {
         position: absolute;
@@ -218,11 +353,11 @@ Attribution required
         display: block;
         visibility: visible;
     }
-    
+
     /* right or prev direction */
-    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-    .carousel-item-prev.carousel-item-right + .carousel-item,
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
+    .active.carousel-item-right+.carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right+.carousel-item,
+    .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
@@ -233,33 +368,33 @@ Attribution required
 }
 
 /*MD*/
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
 
     /* show 3rd of 3 item slide */
-  .carousel-inner .active + .carousel-item + .carousel-item {
+    .carousel-inner .active+.carousel-item+.carousel-item {
         display: block;
     }
- 
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item {
         transition: none;
     }
-  
-    
+
+
     .carousel-inner .carousel-item-next {
-      position: relative;
-      transform: translate3d(0, 0, 0);
+        position: relative;
+        transform: translate3d(0, 0, 0);
     }
-    
-    
+
+
     /* left or forward direction */
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-    
+
     /* right or prev direction */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
@@ -271,22 +406,22 @@ Attribution required
 
 
 /*LG 6th*/
-@media (min-width: 991px) {
+@media only screen and (min-width: 991px) {
 
     /* show 4th item */
-    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner .active+.carousel-item+.carousel-item+.carousel-item {
         display: block;
     }
-    
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item {
         transition: none;
     }
-    
 
 
-    
+
+
     /* right or prev direction //t - previous slide direction last item animation fix */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
@@ -297,44 +432,44 @@ Attribution required
 }
 
 /*LG 6th*/
-@media (min-width: 991px) {
+@media only screen and (min-width: 991px) {
 
-        /* show 5th and 6th item */
-    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
-  .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    /* show 5th and 6th item */
+    .carousel-inner .active+.carousel-item+.carousel-item+.carousel-item+.carousel-item,
+    .carousel-inner .active+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
         display: block;
     }
 
-    
-  
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-      transition: none;
+
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item+.carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+        transition: none;
     }
 
-    
-  
-  /*show 7th slide for animation when its a 6 slides carousel */
-       .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item  + .carousel-item {
+
+
+    /*show 7th slide for animation when its a 6 slides carousel */
+    .carousel-inner .active.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
         position: absolute;
         top: 0;
         right: -16.666666666%;
         z-index: -1;
         display: block;
         visibility: visible;
-  }
-  
-      /* forward direction > */
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
-  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    }
+
+    /* forward direction > */
+    .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item+.carousel-item,
+    .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-  
-      /* prev direction < last item animation fix */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+
+    /* prev direction < last item animation fix */
+    .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item,
+    .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;

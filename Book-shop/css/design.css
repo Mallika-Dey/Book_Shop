@@ -1,107 +1,36 @@
-body{
-	overflow: scroll;
-	background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-	animation-name: home_animation;
-	animation-duration: 0.6s;
+body {
+	margin: 2em 6em 0 6em;
+	background: linear-gradient(to right,#C6FFDD,#FBD786,#f7797d);
 }
-h1{
-	font-family: Comic Sans Ms;
-}
-.First_part{
+
+.book_container {
+	margin: 0 auto;
+	/*border: 1px solid black;*/ /* it will be removed*/
+
 	display: flex;
-	justify-content: space-between;
+	width: 79%;
+	justify-content: space-around;
+	padding: 10px;
 	flex-wrap: wrap;
 }
-.grid_1{
-	display: grid;
-	grid-template-columns: auto auto;
+
+.book-set {
+	margin: 2px 2px 1em 2px;
+	padding: 10px;
+	color: black;
+	background: rgb(167, 171, 168);
+	border: 2px solid rgb(167, 171, 168);
+	border-radius: 2px;
 }
-/*.search{
-	float: center;
-}*/
-.Second_part{
-	/*background-image: url(../image/book-2.jpg);*/
-	height: 30em;
-	/*margin between nav and first_part*/
-	margin-top: -20.6px;
-	color: rgb(240, 232, 216);
-	box-shadow: 0px 2px 3px #666;
+
+.book-set:hover	{
+	box-shadow: 0px 10px 50px rgba(0,0,0,0.3);
+	
 }
-.Second_part p{
-	padding: 9em;
-	font-size: 130%;
-	font-family: Comic Sans Ms;
-}
-.title{
-	font-family: arial,Verdana;
-}
-.nav{
-	background-color: rgb(30, 32, 41);
-}
-ul{
-	list-style-type: none;
-	box-shadow: 0px 2px 3px #666;
-}
-li{
-	display: inline-block;
-}
-li a{
-	display: block;
-	text-decoration: none;
-	color: rgb(240, 232, 216);
-	padding: 0.8em;
-	margin: 0 1.5em 0 0;
-}
-li a:hover{
-	background-color: rgb(163, 160, 155);
-	box-shadow: 0px 2px 3px #666;
-	margin-left: -0.1px;
-	margin-right: 0.1px;
-	margin-top: 0.1px;
-}
-li a:active{
-	text-decoration: underline;
-}
-.login a,.signup a{
-	display: block;
-	border: 1px rgb(10 36 152);
-	background-color: #2b4ad2;
-	color: rgb(240, 232, 216);
-	padding: 9px;
-	width: 50px;
-	text-decoration: none;
-	margin-top: 20px;
-	margin-right: 3px;
-	box-shadow: 0.3px 1px 1.5px rgb(9, 36, 156);
-	font-family: sans-serif,arial;
-	font-size: 80%;
-	font-weight: bold;
+
+.book-info {
 	text-align: center;
-}
-.login a:hover, .signup a:hover{
-	border: 2px solid rgb(26, 58, 199);
-	background-color: rgb(26, 58, 199);
-}
-.account_part,.logout{
-	padding: 8px;
-	margin-top: 20px;
-	margin-right: 3px;
+	font-style: italic;
 	font-weight: bold;
-}
-.account_part{
-	text-decoration: none;
-}
-.logout{
-	border: 1px solid #c1cad2;
-	background-color: #5c98d4;
-	height: 2.7em;
-	width: 4.5em;
-}
-.logout:hover{
-	background-color: #5f9ad8;
-	cursor: pointer;
-}
-@keyframes home_animation{
-	from{opacity: 0};
-	to{opacity: 1};
+	font-size: 90%;
 }

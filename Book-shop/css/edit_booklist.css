@@ -1,59 +1,65 @@
 body {
-	background: -webkit-linear-gradient(left,#25c481,#25b7c4);
-	background: linear-gradient(to right,#25c481,#25b7c4);
-	font-family: sans-serif;
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: sans-serif;
 }
-#right-side	{
-	margin-left: 81em; 
-	margin-top: 3.7em;
+
+#right-side {
+    margin-left: 81em;
+    margin-top: 3.7em;
 }
-#logout	{
-	border-radius: 10px;
-	width: 4.2em;
-	height: 2.4em;	
-	padding: 7px;
-	font-weight: bold;
+
+#logout {
+    border-radius: 10px;
+    width: 4.2em;
+    height: 2.4em;
+    padding: 7px;
+    font-weight: bold;
 }
-.logout:hover{
-	border: 2px solid #25b7c4;
+
+.logout:hover {
+    border: 2px solid #25b7c4;
 }
 
 
-table{
-	border: 2px solid #28a5de;
-	padding: 2px;
-	margin-bottom: 1em;
+table {
+    border: 2px solid #28a5de;
+    padding: 2px;
+    margin-bottom: 1em;
 }
 
-.header{
-		color: blue;
+.header {
+    color: blue;
 }
 
-th,td{
-	border: 2px solid white;
-	height: 30px;
-	padding: 10px 14px 10px 14px;
-	text-align: center;
+th,
+td {
+    border: 2px solid white;
+    height: 30px;
+    padding: 10px 14px 10px 14px;
+    text-align: center;
 }
 
-input{
-	border-color: #dccece;
-	height: 20px;
+input {
+    border-color: #dccece;
+    height: 20px;
 }
 
-.submit{
-	background-color: #13abea;
-	height: 2em;
-	width: 4em;
-	padding: 2px;
-}
-.submit:hover{
-	border: 2px solid #13abea;
+.submit {
+    background-color: #13abea;
+    height: 2em;
+    width: 4em;
+    padding: 2px;
 }
 
-.booklist{
-	margin-left: 10em;
+.submit:hover {
+    border: 2px solid #13abea;
 }
-.booklist table{
-	width: 50em;
+
+.booklist {
+    margin-left: 10em;
+}
+
+.booklist table {
+    width: 50em;
 }

@@ -19,10 +19,10 @@
 			<?php 
 			echo '
 			<p id="boxname">UserName:</p>
-		<input type="text" name="username" placeholder="Enter Your UserName" class="txtbox" id="username"><br><br>
+			<input type="text" name="username" placeholder="Enter Your UserName" class="txtbox" id="username"><br><br>
 
 			<p id="boxname">Password:</p>
-		<input type="password" name="pass" placeholder="Enter Password" class="txtbox" id="pass"><br><br>
+			<input type="password" name="pass" placeholder="Enter Password" class="txtbox" id="pass"><br><br>
 
 		<p id="boxname"><input type="checkbox" name="remember"> Remember me</p>
 
@@ -31,6 +31,7 @@
 		<br>';
 		echo show_error(); 
 			?>
+			<a href="register.php" class="">Don't have an account? Register</a>
 		</div>
 	</form>
 

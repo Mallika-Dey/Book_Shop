@@ -48,7 +48,7 @@
 		else if(strlen($password)<7){
 			array_push($error, 5);
 		}
-		elseif (preg_match("/&/", $password) || preg_match("/</",$password) || preg_match("/>/", $password)) {
+		elseif (preg_match("/&/", $password) || preg_match("/</",$password) || preg_match("/>/", $password) || preg_match('\"\/', $password)) {
 			array_push($error, 7);
 		}
 		else{
@@ -72,7 +72,7 @@
 					header('location: ../admin_home.php');
 				}
 				else  {
-					header('location: ../index.php');
+					header('location: ../user_home.php');
 				}
 			}
 			else  {
@@ -81,7 +81,7 @@
 				$data=mysqli_query($connect,$query);
 				$getid=mysqli_insert_id($connect);
 				$_SESSION['user']=getuserid($getid);
-				header('location: ../index.php');
+				header('location: ../user_home.php');
 			}
 		}
 	}
@@ -103,11 +103,11 @@
 					header('location: ../admin_home.php');
 				}
 				else  {
-					header('location: ../index.php');
+					header('location: ../user_home.php');
 				}
 			}
 			else {
-				array_push($error, "Wrong Username/Password");
+				array_push($error, 8);
 			}
 	}
 
@@ -118,7 +118,7 @@
 				if($val==1){
 					echo "<script type='text/javascript' src='../../javascript/name.js'></script>";
 				}
-				else if ($val==2) {
+				else if ($val==2 || $val==8) {
 					echo "<script type='text/javascript' src='../../javascript/username.js'></script>";
 				}
 				else if ($val==3) {
@@ -127,8 +127,11 @@
 				else if($val==4 || $val==5 || $val==7)	{
 					
 				}
-				else {
+				else if($val==6){
 					echo "<script type='text/javascript' src='../../javascript/username_exist.js'></script>";
+				}
+				else {
+					echo "wrong username or password";
 				}
 			}
 		}
@@ -200,12 +203,28 @@
 	}
 
 	if(isset($_POST['login']))	{
-			login();
+		
+				login();
 	}
 
-	if(isset($_POST['logout']))	{
+	if (isset($_POST['logout'])) {
 		session_destroy();
 		unset($_SESSION['user']);
+	}
+
+	if (isset($_POST['submit_pic'])) {
+
+		if(!isloggedin()) {
+				header('location: login_register/login.php');
+		}
+		else {
+			if($_SESSION['user']['User_type']=='admin')	{
+					header('location: admin_home.php');
+			}
+			else  {
+				header('location: user_home.php');
+			}
+		}
 	}
 
 ?>
