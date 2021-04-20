@@ -1,0 +1,17 @@
+body {
+	background: linear-gradient(90deg, rgba(107,107,236,1) 35%, rgba(145,224,240,1) 100%);
+	font-family: 'Roboto', sans-serif;
+}
+
+.profile {
+	height: auto;
+	width: 60%;
+	margin-left: 11em;
+	margin-top: 3em;
+	padding: 30px;
+	letter-spacing: 1px;
+}
+
+.profile input:last-child {
+	margin-top: 10px;
+}

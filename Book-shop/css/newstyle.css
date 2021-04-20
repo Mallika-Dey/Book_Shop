@@ -1,0 +1,32 @@
+.footer  {
+/*position:absolute;*/
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	background-color: #02075d;
+	color: #ffffff;
+	text-align: center;
+	box-shadow: 0px -6px 15px -5px #000000;
+}
+
+.footer a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.sm_icon  {
+	text-align: center;
+}
+.sm_icon li {
+ 	display: inline-block;
+	list-style-type: none;
+	margin-top: 5px;
+}
+.sm_icon li a{
+	border-bottom: none;
+}
+.sm_icon li img {
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}

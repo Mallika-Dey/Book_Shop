@@ -18,7 +18,7 @@
 
 	function getuserid($getid){
 		global $connect;
-		$query="select * from user where Id='$getid'";
+		$query="select * from user where userid='$getid'";
 		$data=mysqli_query($connect,$query);
 		return mysqli_fetch_assoc($data);
 	}
@@ -33,16 +33,7 @@
 		$password=escape($_POST['pass']);
 		$con_pass=escape($_POST['con_pass']);
 
-		if(empty($name)){
-			array_push($error, 1);
-		}
-		else if(empty($username)){
-			array_push($error, 2);
-		}
-		else if(empty($mail)){
-			array_push($error, 3);
-		}
-		else if($password!=$con_pass){
+		if($password!=$con_pass){
 			array_push($error, 4);
 		}
 		else if(strlen($password)<7){
@@ -52,10 +43,10 @@
 			array_push($error, 7);
 		}
 		else{
-			$query="select Id from user where Username='$username' Limit 1";
+			$query="select userid from user where Username='$username' Limit 1";
 			$data=mysqli_query($connect,$query);
 
-			if(mysqli_num_rows($data)==1){
+			if(mysqli_num_rows($data)==1) {
 				array_push($error, 6);
 			}
 		}
@@ -115,23 +106,14 @@
 		global $error;
 		if(!empty($error))	{
 			foreach ($error as $val) {
-				if($val==1){
-					echo "<script type='text/javascript' src='../../javascript/name.js'></script>";
-				}
-				else if ($val==2 || $val==8) {
-					echo "<script type='text/javascript' src='../../javascript/username.js'></script>";
-				}
-				else if ($val==3) {
-					echo "<script type='text/javascript' src='../../javascript/mail.js'></script>";
-				}
-				else if($val==4 || $val==5 || $val==7)	{
+				if($val==4 || $val==5 || $val==7)	{
 					
 				}
 				else if($val==6){
 					echo "<script type='text/javascript' src='../../javascript/username_exist.js'></script>";
 				}
 				else {
-					echo "wrong username or password";
+					echo "<script type='text/javascript' src='../../javascript/username.js'></script>";
 				}
 			}
 		}
@@ -167,10 +149,10 @@
 	{
 		global $connect;
 		$pic = array();
-		$query="SELECT Cover, Author from $category";
+		$query="SELECT Cover, Author, Price, Id from $category";
 		$data=mysqli_query($connect,$query);
 		while ($val=mysqli_fetch_assoc($data)) {
-			array_push($pic,array("../image/".$val['Cover'],$val['Author']));
+			array_push($pic,array("../image/".$val['Cover'],$val['Author'],$val['Price'],$val['Id']));
 		}
 		return $pic;
 
@@ -198,6 +180,10 @@
 		}
 	}
 
+	function addTOCart() {
+		//global $connect;
+	}
+
 	if(isset($_POST['register']))	{
 			register();
 	}
@@ -212,7 +198,7 @@
 		unset($_SESSION['user']);
 	}
 
-	if (isset($_POST['submit_pic'])) {
+	/*if (isset($_POST['add_to_cart'])) {
 
 		if(!isloggedin()) {
 				header('location: login_register/login.php');
@@ -224,7 +210,9 @@
 			else  {
 				header('location: user_home.php');
 			}
+			addTOCart();
 		}
-	}
+	}*/
+
 
 ?>

@@ -11,12 +11,13 @@
 <html>
 <head>
 	<title>index</title>
+    <meta name="pragma" content="no-cache" />
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -25,6 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/newstyle.css" type="text/css" />
 </head>
 <body>
     <nav>
@@ -37,11 +39,11 @@
             <li><a href="#" class="dif-color">Contact</a></li>
             <li>
                 <div class="dropdown">
-                <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My account</p>
+                <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">My account</p>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profile</a>
-                <!-- <a class="dropdown-item" href="#">Buy Book</a> -->
-                <a class="dropdown-item" href="#">Edit booklist</a>
+                <a class="dropdown-item" href="login_register/profile.php">Profile</a>
+                <a class="dropdown-item" href="edit_booklist.php">Edit booklist</a>
+                <a class="dropdown-item" href="cart/item.php?userid=<?php echo $_SESSION['user']['userid'];?>">Cart</a>
                 <form method="post">
                     <button class="dropdown-item" name="logout">logout</button>
                 </form>
@@ -76,12 +78,10 @@
             	<div class="set-background">
                 	<img class="img-fluid mx-auto d-block" src="<?php echo $pic[0][0];?>" alt="slide 1" style="height: 170px; width: 160px;">
                 	<div class="book-info">
-                		<p><?php echo $pic[0][1]?></p>
+                		<p><?php echo $pic[0][1]?><br><?php echo $pic[0][2]?></p>
                 	</div>
                     <div>
-                        <form method="post">
-                        <input type="submit" name="submit_pic" id="add_to_cart" value="Add to cart">
-                        </form>
+                        <a href="cart/cart.php?id=<?php echo $pic[0][3];?> &category=detective &userid=<?php echo $_SESSION['user']['userid'];?>" class="btn btn-success">Add To cart</a>
                     </div>
            		</div>
         	</div>
@@ -91,12 +91,10 @@
                 <div class="set-background">
                 <img class="img-fluid mx-auto d-block" src='.$pic[$i][0].' alt="slide 2" style="height: 170px; width: 160px;">
                 <div class="book-info">
-                	<p>'.$pic[$i][1].'</p>
+                	<p>'.$pic[$i][1].'<br>'.$pic[$i][2].'</p>
                 </div>
                 <div>
-                    <form method="post">
-                    <input type="submit" name="submit_pic" id="add_to_cart" value="Add to cart">
-                    </form>
+                    <a href="cart/cart.php?id='.$pic[$i][3].' &category=detective &userid='.$_SESSION['user']['userid'].'" class="btn btn-success">Add To cart</a>
                 </div>
                 </div>
                 </div>';
@@ -118,44 +116,58 @@
 
 <br>
 <br>
+
+<footer class="footer">
+           <a href="index.php">Home</a> | 
+           <a href="index.html">Search</a> | 
+            <a href="index.html">Books</a> | 
+            <a href="#">New Releases</a> | 
+             <a href="#">FAQs</a> | 
+             <a href="#">Contact Us</a> <br/>
+<ul class="sm_icon">
+    <li> <a href="#"><img src="../image/gmail.png"> </a> </li>
+    <li> <a href="#"><img src="../image/github.png" style="border-radius: 50px;"> </a> </li>
+    <li> <a href="#"><img src="../image/facebook.png" style="border-radius: 50px;"> </a> </li>
+
+
+
+</ul>
+Copyright © 2021 <strong><i>Team Name</i></strong>  
+
+</footer>
        
 <script type="text/javascript">
         $('#carouselExample').on('slide.bs.carousel', function (e) {
 
-    /*
+/*
 
     CC 2.0 License Iatek LLC 2018
     Attribution required
     
     */
-
-
-    var $e = $(e.relatedTarget);
-    var idx = $e.index();
-    var itemsPerSlide = 7;
-    var totalItems = $('.carousel-item').length;
+            var $e = $(e.relatedTarget);
+            var idx = $e.index();
+            var itemsPerSlide = 7;
+            var totalItems = $('.carousel-item').length;
     
-    if (idx >= totalItems-(itemsPerSlide-1)) {
-        var it = itemsPerSlide - (totalItems - idx);
-        for (var i=0; i<it; i++) {
-            // append slides to end
-            if (e.direction=="left") {
-                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            if (idx >= totalItems-(itemsPerSlide-1)) {
+                var it = itemsPerSlide - (totalItems - idx);
+                for (var i=0; i<it; i++) {
+                    // append slides to end
+                     if (e.direction=="left") {
+                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
+                    }
+                    else {
+                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
+                    }
+                }
             }
-            else {
-                $('.carousel-item').eq(0).appendTo('.carousel-inner');
-            }
-        }
-    }
 });
 </script>
 
 <script type="text/javascript" src="../javascript/open.js"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 </body>
 </html>

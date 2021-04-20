@@ -2,11 +2,13 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/design.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
 </head>
 <body>
 
 <?php
 	error_reporting(0);
+	session_start();
 	include('connect.php');
 	$name='';
 
@@ -36,8 +38,8 @@
                 <div class="book-info">
                 	<p>'.$val['Author'].'</p>
                 </div>
-                <div class="add_to_cart">
-                    <img src="../image/cart.png" style= "height: 70px; width: 160px">
+                <div>
+                    <a href="cart/cart.php?id='.$val['Id'].' &category='.$book_type[$i].' &userid='.$_SESSION['user']['userid'].'" class="btn btn-success" id="add_to_cart">Add To cart</a>
                 </div>
                 </div>';
 			}

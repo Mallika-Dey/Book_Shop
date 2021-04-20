@@ -1,2 +1,1 @@
-let name=document.getElementById('username');
-name.className='show_error';
+alert('wrong username or password');
