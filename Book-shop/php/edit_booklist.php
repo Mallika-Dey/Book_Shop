@@ -11,18 +11,33 @@
 <html>
 <head>
 	<title>Edit_Booklist</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 	<link rel="stylesheet" type="text/css" href="../css/edit_booklist.css">
+	
 </head>
 <body>
-		<div id="right-side">
-			<form action="index.php" method="POST">
-				<?php 
-					echo '<input type="submit" name="logout" value="logout" class="btn btn-primary" id="logout">';
-				?> 
-			</form>
-		</div>
+	<nav>
+        <div class="logo">
+            <h4>Book Shop</h4>
+        </div>
+        <ul class="nav-links">
+            <?php 
+            	if(!isset($_SESSION['user'])) {
+            		echo '<li><a href="index.php" class="dif-color">Home</a></li>';
+            	}
+            	else if($_SESSION['user']['User_type']=="admin") {
+            		echo '<li><a href="admin_home.php" class="dif-color">Home</a></li>';
+            	}
+            	else if($_SESSION['user']['User_type']=="user") {
+            		echo '<li><a href="user_home.php" class="dif-color">Home</a></li>';
+            	}
+
+            ?>
+            <li><a href="#" class="dif-color">About</a></li>
+            <li><a href="#" class="dif-color">Contact</a></li>
+        </ul>
+ 
+    </nav>
+
 
 	<div class="booklist">
 		<div class="header">

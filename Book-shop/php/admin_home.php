@@ -76,6 +76,8 @@
         <div class="carousel-inner row w-100 mx-auto" role="listbox">
             <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-2 active">
             	<div class="set-background">
+                    <span style="visibility: hidden;" id="hidden"><?php echo $pic[0][3]; ?></span>
+                    <span style="visibility: hidden;" id="hidden1">detective</span>
                 	<img class="img-fluid mx-auto d-block" src="<?php echo $pic[0][0];?>" alt="slide 1" style="height: 170px; width: 160px;">
                 	<div class="book-info">
                 		<p><?php echo $pic[0][1]?><br><?php echo $pic[0][2]?></p>
@@ -89,6 +91,8 @@
             for($i=1; $i<sizeof($pic); $i++)    {
                 echo '<div class="carousel-item col-12 col-sm-6   col-md-4 col-lg-2">
                 <div class="set-background">
+                    <span style="visibility: hidden;" id="hidden">'.$pic[$i][3].'</span>
+                    <span style="visibility: hidden;" id="hidden1">detective</span>
                 <img class="img-fluid mx-auto d-block" src='.$pic[$i][0].' alt="slide 2" style="height: 170px; width: 160px;">
                 <div class="book-info">
                 	<p>'.$pic[$i][1].'<br>'.$pic[$i][2].'</p>
@@ -166,6 +170,7 @@ Copyright © 2021 <strong><i>Team Name</i></strong>
 </script>
 
 <script type="text/javascript" src="../javascript/open.js"></script>
+<script type="text/javascript" src="../javascript/book-content.js"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 

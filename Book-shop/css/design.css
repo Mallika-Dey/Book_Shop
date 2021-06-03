@@ -12,7 +12,7 @@ body {
 	flex-wrap: wrap;
 }
 
-.book-set {
+.book-background {
 	margin: 2px 2px 1em 2px;
 	padding: 10px;
 	color: black;
@@ -21,9 +21,8 @@ body {
 	border-radius: 2px;
 }
 
-.book-set:hover	{
+.book-background:hover	{
 	box-shadow: 0px 10px 50px rgba(0,0,0,0.3);
-	
 }
 
 .book-info {

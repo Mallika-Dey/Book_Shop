@@ -1,0 +1,39 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 9vh;
+    font-family: 'Poppins', sans-serif;
+    background: #233463;
+}
+
+.logo {
+    margin-top: 4px;
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 18px;
+    text-shadow: -2px 2px 3px #ffffff;
+}
+
+.nav-links {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a{
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dif-color, .dif-color:hover {
+    color: rgb(226, 226, 226);
+}

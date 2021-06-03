@@ -139,7 +139,7 @@
 				$var=move_uploaded_file($_FILES['pic']['tmp_name'], $targetfile);
 			}
 
-			$query="INSERT INTO $category(Book_name,Author,Price,Cover) VALUES('$book_name','$author','$price','$filename')";
+			$query="INSERT INTO $category(Book_name,Author,Price,Cover,Summary) VALUES('$book_name','$author','$price','$filename','')";
 			$data=mysqli_query($connect,$query);
 		}
 

@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../../css/item.css">
 </head>
 <body>
+
+	<?php include("../nav-part.php");?>
 	<div class="item-content">
 	<?php 
 		$userid = $_GET['userid'];
